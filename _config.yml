@@ -1,7 +1,7 @@
-title: devlopr
-subtitle: A Jekyll Theme Built for Developers
+title: Abhi Patel
+subtitle:
 description: >- # this means to ignore newlines until "baseurl:"
-  devlopr-jekyll is a Jekyll Theme Built For Developers
+
 
 url: "" # the base hostname & protocol for your site, e.g. https://example.github.io
 baseurl: "" # the subpath of your site, e.g. /blog
@@ -18,33 +18,36 @@ urls:
 # Edit these details
 
 author_logo: profile.png
-author: John Doe
-author_bio: Hi, my name is John Doe. I built this site using devlopr-jekyll :D
-author_email: "johndoe@gmail.com"
-author_location: India
-author_website_url: "http://johndoe.com"
-typewrite-text: devlopr is a jekyll theme built for developers. You can edit this in _config.yml file
+author: Abhi Patel
+author_bio: Mechatronics Engineering Student
+author_email: "abhi.patel@ontariotechu.net"
+author_location: Canada
+author_website_url: "abhipatel.netlify.app"
+typewrite-text: Welcome to my site
 
 author_work_experiences:
-            - company_name: Google
-              company_logo: google.png
-              company_url: https://google.com
-              designation: Software Engineer
-              description: Worked on various Google Products
+            - company_name: CAROBOT Learning And Research Organization
+              company_logo: carobot.png
+              company_url: https://www.carobot.org/
+              designation: Hardware Developer
+              description: >-
+                Designed robot cars for lesson kits.
+                Created the logistics, lesson plans and software for summer camp classes
               visibility: true
-            - company_name: Microsoft
-              company_logo: microsoft.png
-              company_url: https://microsoft.com
-              designation: Azure Developer
-              description: Worked on various Azure Cloud Products
+
+            - company_name: Telus
+              company_logo: telus.jpg
+              company_url: https://www.telus.com/en/
+              designation: Data Engineering Co-op
+              description: Worked on various Telus Products for the Systems for Enterprise Analytics
               visibility: true
 
 author_education_details:
-              - college_logo: mit.png
-                college_name: MIT
-                college_url: https://mit.org
-                college_degree: CS Engineer
-                description: Bachelor of Technology
+              - college_logo: ontariotechu.png
+                college_name: Ontario Tech University
+                college_url: https://ontariotechu.ca/
+                college_degree: Mechatronics Engineering
+                description: Bachelor of Engineering
                 visibility: true
 
 author_project_details:
@@ -52,12 +55,8 @@ author_project_details:
                 project_title: Gamers Hub
                 project_description: A Platform built for Gamers and Game Devs
                 project_url: https://gamershub.in
-                visibility: true
-              - project_thumbnail: hack4r.PNG
-                project_title: Hack4r
-                project_description: A Platform built for Hackers and Penetration Testers
-                project_url: https://hack4r.com
-                visibility: true
+                visibility: false
+
 
 # social links
 github_username:  b33boy
