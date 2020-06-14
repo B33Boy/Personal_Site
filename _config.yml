@@ -15,8 +15,6 @@ urls:
       url : /contact
 
 
-# Edit these details
-
 author_logo: profile.png
 author: Abhi Patel
 author_bio: Mechatronics Engineering Student
@@ -57,6 +55,7 @@ author_project_details:
                 project_url: https://gamershub.in
                 visibility: false
 
+resume: Abhi_Resume_14_June_2020.pdf 
 
 # social links
 github_username:  b33boy

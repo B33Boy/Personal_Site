@@ -5,8 +5,9 @@
 
 @import "devlopr";
 
-/* custom css goes below */
-
+/*
+  Home Page
+*/
 
 #particles-js {
   position: absolute;
@@ -23,4 +24,17 @@
   margin-bottom: 20px;
   z-index:1;
   padding-bottom: 20px;
+}
+
+
+/*
+  About page
+*/
+
+// Resume Download
+#download_button {
+    // color: #fff;
+    // text-shadow: 1px 1px 1px #ccc;
+    // font-size: 5em;
+    font-size: 16px;
 }
