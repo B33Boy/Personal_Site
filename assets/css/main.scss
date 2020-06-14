@@ -1,0 +1,26 @@
+---
+---
+
+@charset "utf-8";
+
+@import "devlopr";
+
+/* custom css goes below */
+
+
+#particles-js {
+  position: absolute;
+  width: 100%;
+  height: 400px;
+  background: #212121;
+  // padding-bottom: 10px;
+}
+
+.overlay_particlejs {
+  top: 50px;
+  text-align: center;
+  position: relative;
+  margin-bottom: 20px;
+  z-index:1;
+  padding-bottom: 20px;
+}

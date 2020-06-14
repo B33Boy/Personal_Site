@@ -1,0 +1,2 @@
+assets/bower_components/ filter=lfs diff=lfs merge=lfs -text
+assets/bower_components/* filter=lfs diff=lfs merge=lfs -text

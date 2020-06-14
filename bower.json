@@ -1,0 +1,22 @@
+{
+  "name": "devlopr-jekyll",
+  "homepage": "https://github.com/B33Boy/devlopr-jekyll",
+  "authors": [
+    "abhi patel <abhip202@gmail.com>"
+  ],
+  "description": "A Jekyll Theme Built For Developers",
+  "main": "",
+  "keywords": [
+    "jekyll-theme",
+    "jekyll",
+    "gallery"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
