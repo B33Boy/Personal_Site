@@ -1,11 +1,11 @@
 ---
 layout: post
-title:  "Welcome to devlopr !"
+title:  Research Paper Review
 summary: Hello World ! This is a sample post
-author: John Doe
-date: '2019-05-22 14:35:23 +0530'
-category: jekyll
-thumbnail: /assets/img/posts/code.jpg
+author: Abhi Patel
+date: '2020-06-15 14:35:23 +0530'
+category: paper_notes
+thumbnail: /assets/img/posts/vinland.jpg
 ---
 You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
 
