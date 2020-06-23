@@ -51,3 +51,8 @@ model.compile(loss='categorical_crossentropy', optimizer=sgd, metrics=['accuracy
 # Fit the model
 history = model.fit(X_train, y_train, nb_epoch=20, batch_size=1000, validation_data=(X_test, y_test))
 {% endhighlight %}
+
+
+The final result is cross validation accuracy of 77% with loss under 0.3.
+![accuracy](/assets/img/posts/accuracy-epoch1.png){:class="img-fluid"}
+![loss](/assets/img/posts/loss1.png){:class="img-fluid"}
