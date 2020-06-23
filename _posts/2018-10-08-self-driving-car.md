@@ -35,7 +35,8 @@ The next step was to actually build the Keras model. We first split the data int
 {% highlight python %}
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.20)
 
-# define model model = Sequential()
+# define the model
+model = Sequential()
 training_start = time.time()
 print("Training data...")
 model.add(Dense(100, input_dim=38400, init='uniform'))
