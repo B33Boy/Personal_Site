@@ -19,3 +19,6 @@ permalink: /blog/categories/CATEGORY_NAME
 {% endfor %}
 </div>
 ```
+
+### How to update Algolia Indices
+`bundle exec jekyll algolia`
