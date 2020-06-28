@@ -1,13 +1,13 @@
 ---
-title: Research Paper Review
+title: Reducing the dimensionality of data with neural networks.
 layout: post
-summary: Hello World ! This is a sample post
-author: Abhi
-date: '2020-06-15 14:35:23 +0530'
+summary:
+author: Abhi Patel
+date: "2020-06-24"
 category: paper_notes
 thumbnail: "/assets/img/posts/vinland.jpg"
 ---
 
+### Paper: [Hinton, and Salakhutdinov](http://www.cs.toronto.edu/~hinton/science.pdf)
 
-
-$$mean = \frac{\displaystyle\sum_{i=1}^{n} x_{i}}{n}$$
+This paper explains 
