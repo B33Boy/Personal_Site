@@ -1,7 +1,7 @@
 ---
 title: Arnold’s Cat Map
 layout: post
-summary: A method of chaotic mapping image data
+summary: A method of chaotic mapping image data by applying affine transformations
 author: Abhi Patel
 date: '2017-12-26'
 category: misc

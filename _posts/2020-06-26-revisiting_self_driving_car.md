@@ -4,9 +4,7 @@ layout: post
 summary: This post aims to revisit the shortcomings of the self driving rc car model in Keras.
 author: Abhi Patel
 date: "2020-06-28"
-category:
-        - projects
-        - misc
+category: projects
 thumbnail: "/assets/img/posts/side_view.jpg"
 ---
 
