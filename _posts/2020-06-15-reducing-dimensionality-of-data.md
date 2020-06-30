@@ -22,8 +22,8 @@ Encoder-decoder networks have a "bottleneck" hidden layers that compress the inp
 The problem with autoencoders comes with difficulty in optimizing weights for deeper networks. Large weight initializations lead to poor minima, and small initializations lead to tiny gradients that do not change much. This is commonly known as the exploding/vanishing gradient problem.
 
 
-##### Boltzmann Machines
-This paper proposes that binary vectors (that represent images) can be modelled using a restricted Boltzmann machine that is two-layer network with inter-layer connections but no intra-layer connections. In the case presented, Boltzmann machines connect visible units $v$ (the pixels) with hidden units $h$ (the features).
+##### Boltzmann Machines & Pretraining
+This paper proposes that stochastic binary vectors (that represent images) can be connected to stochastic binary feature detectors via symmetrically weighted connections in a restricted Boltzmann machine. A RBM is a two-layer network with inter-layer connections but no intra-layer connections. In the case presented, Boltzmann machines connect visible units $v$ (the pixels) with hidden units $h$ (the features).
 
 The network assigns a probability to each image by an energy function: $E(v, h) = -\sum_{i \in pixels} b_{i}v_{i} - \sum_{j \in features} b_{j}h_{j} - \sum_{i, j} v_{i}h_{j}w_{ij}$
 
@@ -33,7 +33,7 @@ where:
 &nbsp;- $v_{i}$ are binary states of pixel i  
 &nbsp;- $h_{j}$ are binary states of feature j  
 
-What training does is tweaks the weights and biases to decrease the value of the energy function for the original image, and increase it for images with similar features.
+What pretraining does is tweaks the weights and biases to decrease the value of the energy function for the original image, and increase it for images with similar features.
 
 1. Given a training image, the binary state $h_{j}$ of each hidden unit j is set to 1 with probability defined by the sigmoid function $\sigma(x) = \frac{1}{1+\exp^{-x}}$ where $x = b_{j} + \sum_{i} v_{i}w_{ij}$
 
@@ -44,7 +44,15 @@ What training does is tweaks the weights and biases to decrease the value of the
 
 The primary idea of using restricted Boltzmann machines is to take the learned output of the hidden units (which are feature detectors) and feed them into another hidden layer as visible units, and learning another time. This layer-by-layer learning allows "[e]ach layer of features to capture strong, high-order correlations between the activities of units in the layer below" [1].
 
+##### Unfolding and Training
 
+After pretraining, the model is "unfolded" to fit the encoder-decoder structure by finding the decoder from the encoder. The new weights for the decoder half of the network are transposed during the unfolding process.
+
+##### Results
+
+The pretraining data were randomly generated curves in 2D. The pixel intensities were non-Gaussian and between 0 and 1 ensuring that the sigmoid function could be used for output units in the auto encoder. The fine-tuning stage minimizes cross-entropy error [] where .
+
+The autoencoder is of size (28x28)-400-200-100-50-25-6 (with the decoder portion reversed). 
 
 > [1] G. E. Hinton and R. R. Salakhutdinov, “Reducing the Dimensionality of Data with Neural Networks,” Science, vol. 313, no. 5786, p. 504, Jul. 2006, doi: 10.1126/science.1127647.  
 [2] Ufldl.stanford.edu. n.d. Unsupervised Feature Learning And Deep Learning Tutorial. [online] Available at: <http://ufldl.stanford.edu/tutorial/unsupervised/Autoencoders/> [Accessed 27 June 2020].  
