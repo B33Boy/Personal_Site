@@ -15,6 +15,7 @@ Let's start with ways to improve the data. Initially, the height of the image wa
 
 We can use image thresholding to give a cleaner separation between the road markers. An even better option is using hough transform to detect and highlight the lanes.
 
+<div>
 {% highlight python %}
 # The original parse function to retrieve the images from npz files
 input_data_path = glob.glob('../training_data/*.npz')
@@ -43,19 +44,15 @@ X = X.reshape((1071, 120, 320))
 y = y[1:]
 
 {% endhighlight %}
+</div>
 
 ![thresholded images](https://raw.githubusercontent.com/B33Boy/Self-Driving-RC-Car/master/computer/Tests/img_grid.png){:class="img-fluid"}
 
 
 Next, we can shuffle our data while preserving the association between the data and labels using scikit learn's utility function.
-
+<div>
 {% highlight python %}
 X, y = shuffle(X, y)
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.20)
 {% endhighlight %}
-
-
-
-<div style="vertical-align:middle">
-  ![thresholded images](https://raw.githubusercontent.com/B33Boy/Self-Driving-RC-Car/master/computer/Tests/img_grid.png){:class="img-fluid"}
 </div>
