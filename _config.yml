@@ -1,5 +1,5 @@
 title: Abhi Patel
-subtitle: 
+subtitle:
 description: >- # this means to ignore newlines until "baseurl:"
 
 
@@ -88,8 +88,8 @@ algolia:
   search_only_api_key: e3393b3def9aa435cc746f1fc15030f5
 
 # pagination of posts
-paginate: 4
-per_page: 4
+paginate: 8
+per_page: 8
 paginate_path: "/blog/page/:num/"
 
 # Gallery

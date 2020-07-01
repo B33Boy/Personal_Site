@@ -7,3 +7,5 @@ date: "2020-06-30"
 category: research_papers
 thumbnail: "/assets/img/posts/howls.jpg"
 ---
+
+### Paper: [Hinton, Krizhevsky, and Sutskever](http://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf)
