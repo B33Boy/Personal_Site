@@ -50,9 +50,13 @@ After pretraining, the model is "unfolded" to fit the encoder-decoder structure 
 
 ##### Results
 
-The pretraining data were randomly generated curves in 2D. The pixel intensities were non-Gaussian and between 0 and 1 ensuring that the sigmoid function could be used for output units in the auto encoder. The fine-tuning stage minimizes cross-entropy error [] where .
+The pretraining data were randomly generated curves in 2D. The pixel intensities were non-Gaussian and between 0 and 1 ensuring that the sigmoid function could be used for output units in the auto encoder. The fine-tuning stage minimizes cross-entropy error $-\sum_{i} p_{i} log(\hat{p_{i}}) - \sum_{i}(1 - p_{i})log(1 - \hat{p_{i}})$ where $p_{i}$ is intensity of pixel $i$, and $\hat{p_{i}}$ is intensity of its reconstruction.
 
-The autoencoder is of size (28x28)-400-200-100-50-25-6 (with the decoder portion reversed). 
+The autoencoder is of size (28x28)-400-200-100-50-25-6 with the symmetric decoder portion reversed. When trained on 20,000 images, and tested on 10,000 new images, the autoencoder performed better than PCA. Although shallow networks can still learn to represent the input image, pretraining reduces the time it takes to train the model.
+
+Next, a 784-1000-500-250-30 autoencoder is used to learn the digits in the MNIST dataset. Fine-tuning is done on 60,000 training images, and testing is done on 10,000 new images.  Once again, the model performs better than PCA.
+
+The rest of the results are on page 4 of the paper.
 
 > [1] G. E. Hinton and R. R. Salakhutdinov, “Reducing the Dimensionality of Data with Neural Networks,” Science, vol. 313, no. 5786, p. 504, Jul. 2006, doi: 10.1126/science.1127647.  
 [2] Ufldl.stanford.edu. n.d. Unsupervised Feature Learning And Deep Learning Tutorial. [online] Available at: <http://ufldl.stanford.edu/tutorial/unsupervised/Autoencoders/> [Accessed 27 June 2020].  
