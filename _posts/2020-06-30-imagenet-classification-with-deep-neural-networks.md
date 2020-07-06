@@ -10,62 +10,88 @@ thumbnail: "/assets/img/posts/howls.jpg"
 
 ### Paper: [Hinton, Krizhevsky, and Sutskever](http://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf)
 
-
-Notes
-
-Who:
-Hinton, Krizhevsky, and Sutskever
-
-What:
-  a large neural net was trained for the following competitions: ILSVRC-2010 and ILSVRC-2012 competitions. GPU optimization and use of 2D convolution helped speed up training. Overfitting was addressed with various methods.
-  Final network architecture: 5 Conv + 3 FC layers, removing any conv layer resulted in inferior performance. Removing any conv layer results in inferior performance.
-
-  Experiments suggest that results can be improved by just using larger datasets and faster GPUS
-
-Why:
-Attempt to increase object classification accuracy via convolutional nn architecture.
+##### Summary
+A large neural net was trained for the following competitions: ILSVRC-2010 and ILSVRC-2012 competitions. GPU optimization and use of 2D convolution helped speed up training. Overfitting was addressed with various methods such as dropout and . Final network architecture was 5 convolutional layers and 3 fully connected layers. Experiments suggest that results can be improved by just using larger datasets and faster GPUS.
 
 
-##### dataset
-ImageNet is dataset with 15 mill labelled images of various sizes in 22,000 categories. ImageNet Large-Scale Visual Recognition Challenge (ILSCVRC) is held every year, and the dataset used for that contains 1000 categories with around 1000 images in each category. Additionally, 50,000 are validation images, and 150,000 are test images. The metrics for performance are Top-1 and Top-5 error rates. Top-5 error rates are the fraction of test images for which the correct label is not among the five most probable labels. Images were scaled down to 256x256 pixels, and the mean was subtracted.
+##### Understanding The Dataset
+ImageNet is dataset with 15 mill labelled images of various sizes in 22,000 categories. ImageNet Large-Scale Visual Recognition Challenge (ILSCVRC) is held every year, and the dataset used for that contains 1000 categories with around 1000 images in each category. Additionally, 50,000 are validation images, and 150,000 are test images. The metrics for performance are Top-1 and Top-5 error rates. **Top-5 error rates are the fraction of test images for which the correct label is not among the five most probable labels**. During pre-processing, images were scaled down to $256\times256$ pixels, and the mean was subtracted.
 
 
-##### The architecture
-8 layers = 5 conv + 3 FC. The last FC layer gets fed into a 1000 node softmax function which outputs probability for each of the 1000 classes.
+##### The Architecture
+8 layers = 5 convolutional + 3 fully connected.
 
-The first convolutional layer takes in 224x224x3 input images, computes an output with of size 11x11x3 by using 96 kernels and a stride of 4 pixels. Next response Normalization (which I won't go into), and max pooling.
+Inputs and outputs are as follows:
+$224\times224\times3$ input image
+&rarr; 96 kernels of size $11\times11\times3$; stride is 4px;
+&rarr; response norm + max pooling
+&rarr; 256 kernels of size $5\times5\times48$
+&rarr; response norm + max pooling
+&rarr; 384 kernels of size $3\times3\times256$
+&rarr; 384 kernels of size $3\times3\times192$
+&rarr; 256 kernels of size $3\times3\times192$
+&rarr; FC layer of 4096
+&rarr; FC layer of 4096
+&rarr; FC layer of 1000; softmax function outputs probability for each of the 1000 classes
 
-The next conv layer takes in that 11x11x3 tensor and filters using 256 kernels of size 5x5x48. The next layer uses 384 kernels of size 3x3x256. The fourth layer has 384 kernels of size 3x3x192 and the final layer has 256 kernels of size 3x3x192. The fully connected layers have 4096 neurons each.
 
-224x224x3 input image --> 11x11x3; 96 kernels of size 11x11x3; stride is 4px; --> response norm + max pooling --> 256 kernels of size 5x5x48 --> response norm + max pooling --> 384 kernels of size 3x3x256 --> 384 kernels of size 3x3x192 --> 256 kernels of size 3x3x192 --> FC layer of 4095 --> FC layer of 4096 --> FC layer of 4096
+##### Initialization
+Weights were initialized with a gaussian distribution that had zero-mean and a standard deviation of 0.01. Biases in the second, and fourth to eighth layers were initialized at 1. The bias for the other layers was 0. The reason for initializing biases as 1 is because it would speed up early stages of learning by providing the ReLU functions with positive inputs.
+
+##### REctified Linear Unit (RELU)
+A function $f$ is non-saturating if $\lvert lim_{z &rarr; - \infty} f(z) = + \infty \rvert  \lor \lvert lim_{z &rarr; \infty} f(z) = + \infty \rvert$
+
+RELU was used as the activation function because it is non-saturating unlike the sigmoid and tanh functions which are saturating. This is important because larger inputs yield a "saturated" or plateaued value such that the rate of change is low. This means that backpropagation, which uses derivatives to update weights will have smaller changes, leading to slower convergence. The RELU consistently allows the model to converge in fewer epochs compared to the tanh and sigmoid.
 
 
-##### RELU
-f is non-saturating if
-$\lvert lim_{z \rarr -\infin} f(z) = + \infin \rvert  \lor \lvert lim_{z \rarr \infin} f(z) = + \infin \rvert$
+##### Local Response Normalization (LRN)
+This technique was inspired by computational neuroscience but has fallen out of favour in current times as it provides very little error reduction. This method is used to create larger contrast between peaks and plateaus to increase recognition. See Section 3.3 on page 4 as I will not be covering the formula in detail.
 
-RELU was used as the activation function because it is non-saturating unlike the sigmoid and tanh functions which are saturating. This is significant because larger inputs yield a "saturated" or plateaued value such that the rate of change is low. This means that backpropagation, which uses the derivative to update weights will have smaller changes, leading to slower convergence.  https://stats.stackexchange.com/questions/174295/what-does-the-term-saturating-nonlinearities-mean?rq=1
-
-(See image on page 3)
-
-##### Local Response Normalization
-This technique was inspired by computational neuroscience but has fallen out of favour in current times as it provides very little error reduction.
 
 ##### Overlapping pooling
-s is the increment size, and z is the window of interest. If s=z, we have local pooling which is taking the average/max of each window that is shifted such that no overlapping occurs. If s<z, we have overlapping values where the window captures s-z values multiple times.
+Max pooling is a process where matrix/tensor representations are down-sampled by the process of sampling the maximum values of selected sub-regions. Let $s$ be the increment, and $z$ be the window of interest. If $s=z$, we have local pooling which is the original method of choosing the maximum value in each sub-region without the window covering any neurons more than once. If $s<z$, then we have overlapping values where the window recaptures $z-s$ values per increment.  
 
-"This scheme reduces the top-1 and top-5 error rates by 0.4% and 0.3%, respectively, as compared with the non-overlapping scheme s = 2, z = 2, which produces output of equivalent dimensions. We generally observe during training that models with overlapping pooling find it slightly more difficult to overfit".
-https://stats.stackexchange.com/questions/283261/why-does-overlapped-pooling-help-reduce-overfitting-in-conv-nets
-
-###### Dropout
-Present in the first two FC layers, this technique allows the prevention of overfitting at the cost of doubling the number of iterations needed to converge. Dropout is the process of randomly assigning all neurons in a layer a probability between 0 and 1, and then "switching off" neurons that fall above a threshold - which in the case of this paper is 0.5. "Switching off" means that both forward propagation and backpropagation ignore that neuron. One quirk to remember during test time is that all neurons are used, but their outputs are multiplied by 0.5 to take the geometric mean.
+"This scheme reduces the top-1 and top-5 error rates by 0.4% and 0.3%, respectively, as compared with the non-overlapping scheme $s=2$, $z=2$, which produces output of equivalent dimensions. We generally observe during training that models with overlapping pooling find it slightly more difficult to overfit" (Krizhevsky et al., 2012).
 
 
-##### Details
+##### Dropout
+Present in the first two FC layers, this technique allows the prevention of overfitting at the cost of doubling the number of iterations needed to converge. Dropout is the process of randomly assigning all neurons in a layer a probability between 0 and 1, and then "switching off" neurons that fall above a threshold - which in the case of this paper is 0.5. "Switching off" means that both forward propagation and backpropagation ignore that neuron. One quirk to remember during **test time** is that all neurons are used, but their outputs are multiplied by 0.5 to take the geometric mean.
 
-Stochastic gradient descent
-Batch size of 128 examples
-Momentum of 0.9
-Weight decay of 0.0005
 
-$v_{i+1} := 0.9v_{i} - 0.0005\dot$
+##### Data Augmentation
+Two methods of data augmentation were mentioned in the paper.
+The first method is reflecting, and translating images to generate more data. $224 \times 224$ pixel patches are chosen from the $256 \times 256$ images at the four corners and in the centre. Additionally the patches are flipped along the vertical axis to generate even more images. This yields 10 times more images.
+
+The second method utilizes Principle Component Analysis (PCA) to find vector representations of the highest variance (i.e. the principal components) with respect to each red, green, or blue channel. We add the product of the three principal components by their corresponding eigenvalues multiplied by gaussian random values with a mean of 0 and standard deviation of 0.1 to get images that simulate different lighting conditions.
+
+$ [p_{1} \text{ } p_{2} \text{ } p_{3} \] \[ \alpha_{1}\lambda_{1} \text{ } \alpha_{2}\lambda_{2} \text{ } \alpha_{3}\lambda_{3} \]^{T} $
+
+Where:
+- $i$ is used to denote the eigenvector/eigenvalue corresponding the $3 \times 3$ covariance matrix
+- $p_{i}$ is the ith eigenvector
+- $\lambda_{1}$ is the ith eigenvalue
+- $\alpha_{i}$ is the gaussian random value
+
+object identity is invariant to changes in the intensity and color of the illumination
+
+##### Gradient Descent, Momentum, Weight Decay
+
+The paper states stochastic gradient descent is used, but then shortly after suggests a batch size of 128 examples. This was something I found confusing about the paper as stochastic gradient descent does not work with batches but rather single training examples. I will interpret it as mini-batch gradient descent with 128 examples per step.
+
+This algorithm uses momentum with $\beta = 0.9$ to speed up convergence.
+During gradient descent, momentum tries to damp oscillations in directions other than where the local optima is.
+
+The problem of overfitting that plagues the model with generalizing new data is addressed with regularization. Weight decay of 0.0005 is chosen to reduce complexity.
+
+The paper describes the following update rule: \
+$$ v_{i+1} := 0.9v_{i} - 0.0005  \epsilon  w_{i} - \epsilon \langle \frac{\partial v}{\partial t} |_{w_{i}} \rangle_{_{D_{i}}} $$ \
+$$ w_{i} = w_{i} + v_{i+1} $$
+
+where:
+- $i$ is the iteration index
+- $v$ is the momentum variable
+- $\epsilon$ is the learning rate
+- $ \langle \frac{\partial v}{\partial t} \|\_{w_{i}} \rangle\_{\_{D\_{i}}} $ is the average of the ith batch (i.e. $D_{i}$) of the derivative of the loss function with respect to the ith weight.
+
+##### References
+> Krizhevsky, Alex, Ilya Sutskever, and Geoffrey E. Hinton. "Imagenet classification with deep convolutional neural networks." Advances in neural information processing systems. 2012.
