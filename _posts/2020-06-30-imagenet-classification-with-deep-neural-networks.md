@@ -31,7 +31,7 @@ $224\times224\times3$ input image
 &rarr; 384 kernels of size $3\times3\times256$
 &rarr; 384 kernels of size $3\times3\times192$
 &rarr; 256 kernels of size $3\times3\times192$
-&rarr; FC layer of 4095
+&rarr; FC layer of 4096
 &rarr; FC layer of 4096
 &rarr; FC layer of 4096
 
@@ -63,7 +63,17 @@ Present in the first two FC layers, this technique allows the prevention of over
 Two methods of data augmentation were mentioned in the paper.
 The first method is reflecting, and translating images to generate more data. $224 \times 224$ pixel patches are chosen from the $256 \times 256$ images at the four corners and in the centre. Additionally the patches are flipped along the vertical axis to generate even more images. This yields 10 times more images.
 
-The second method utilizes Principle Component Analysis (PCA) to reduce dimensionality for each of the RGB channels.
+The second method utilizes Principle Component Analysis (PCA) to find vector representations of the highest variance (i.e. the principal components) with respect to each red, green, or blue channel. We add the product of the three principal components by their corresponding eigenvalues multiplied by gaussian random values with a mean of 0 and standard deviation of 0.1 to get images that simulate different lighting conditions.
+
+$ [p_{1} \text{ } p_{2} \text{ } p_{3} \] \[ \alpha_{1}\lambda_{1} \text{ } \alpha_{2}\lambda_{2} \text{ } \alpha_{3}\lambda_{3} \]^{T} $
+
+Where:
+- $i$ is used to denote the eigenvector/eigenvalue corresponding the $3 \times 3$ covariance matrix
+- $p_{i}$ is the ith eigenvector
+- $\lambda_{1}$ is the ith eigenvalue
+- $\alpha_{i}$ is the gaussian ranom value
+
+object identity is invariant to changes in the intensity and color of the illumination
 
 ##### Gradient Descent, Momentum, Weight Decay
 
