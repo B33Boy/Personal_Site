@@ -36,6 +36,9 @@ $224\times224\times3$ input image
 &rarr; FC layer of 4096
 
 
+##### Initialization
+Weights were initialized with a gaussian distribution that had zero-mean and a standard deviation of 0.01. Biases in the second, and fourth to eighth layers were initialized at 1. The bias for the other layers was 0. The reason for initializing biases as 1 is because it would speed up early stages of learning by providing the ReLU functions with positive inputs.
+
 ##### REctified Linear Unit (RELU)
 A function $f$ is non-saturating if $\lvert lim_{z &rarr; - \infty} f(z) = + \infty \rvert  \lor \lvert lim_{z &rarr; \infty} f(z) = + \infty \rvert$
 
@@ -60,7 +63,7 @@ Present in the first two FC layers, this technique allows the prevention of over
 Two methods of data augmentation were mentioned in the paper.
 The first method is reflecting, and translating images to generate more data. $224 \times 224$ pixel patches are chosen from the $256 \times 256$ images at the four corners and in the centre. Additionally the patches are flipped along the vertical axis to generate even more images. This yields 10 times more images.
 
-The second method utilizes Principle Component Analysis (PCA) to reduce dimensionality for each of the RGB channels. 
+The second method utilizes Principle Component Analysis (PCA) to reduce dimensionality for each of the RGB channels.
 
 ##### Gradient Descent, Momentum, Weight Decay
 
@@ -79,7 +82,7 @@ where:
 - $i$ is the iteration index
 - $v$ is the momentum variable
 - $\epsilon$ is the learning rate
-- $\langle \frac{\partial v}{\partial t} |_{w_{i}} \rangle_{_{D_{i}}}$ is
+- $ \langle \frac{\partial v}{\partial t} \|\_{w_{i}} \rangle\_{\_{D\_{i}}} $ is the average of the ith batch (i.e. $D_{i}$) of the derivative of the loss function with respect to the ith weight.
 
 ##### References
 > Krizhevsky, Alex, Ilya Sutskever, and Geoffrey E. Hinton. "Imagenet classification with deep convolutional neural networks." Advances in neural information processing systems. 2012.
