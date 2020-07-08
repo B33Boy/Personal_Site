@@ -20,7 +20,6 @@ ImageNet is dataset with 15 mill labelled images of various sizes in 22,000 cate
 
 ##### The Architecture
 8 layers = 5 convolutional + 3 fully connected.
-The last FC layer gets fed into a 1000 node softmax function which outputs probability for each of the 1000 classes.
 
 Inputs and outputs are as follows:
 $224\times224\times3$ input image
@@ -33,7 +32,7 @@ $224\times224\times3$ input image
 &rarr; 256 kernels of size $3\times3\times192$
 &rarr; FC layer of 4096
 &rarr; FC layer of 4096
-&rarr; FC layer of 4096
+&rarr; FC layer of 1000; softmax function outputs probability for each of the 1000 classes
 
 
 ##### Initialization
@@ -71,7 +70,7 @@ Where:
 - $i$ is used to denote the eigenvector/eigenvalue corresponding the $3 \times 3$ covariance matrix
 - $p_{i}$ is the ith eigenvector
 - $\lambda_{1}$ is the ith eigenvalue
-- $\alpha_{i}$ is the gaussian ranom value
+- $\alpha_{i}$ is the gaussian random value
 
 object identity is invariant to changes in the intensity and color of the illumination
 
