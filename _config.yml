@@ -13,7 +13,12 @@ urls:
       url: /blog
     - text: Contact Me
       url : /contact
+    - text: Notepad
+      url: /notepad
 
+collections:
+    notepad:
+      output: true
 
 author_logo: profile.png
 author: Abhi Patel

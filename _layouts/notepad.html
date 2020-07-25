@@ -1,0 +1,47 @@
+---
+layout: default
+---
+
+
+<div class="row">
+  <div class="col-lg-5 offset-md-1">
+    <div class="card">
+      Testing
+    </div>
+
+    <div class="card">
+      <h1>Reading List</h1>
+      {%- include reading_list.html -%}
+    </div>
+
+  </div>
+
+
+
+  <div class="col-lg-6">
+
+    <div class="card">
+      <h1 class="card-title">Notes</h1>
+
+      <ul>
+        {% for post in site.notepad %}
+        <li class="article-card">
+          <a href="{{post.url}}" class="article-card-link">
+            <div id="article-container">
+                <span style="color: #fda50f; font-size: 20px;"> {{post.title}} </span>
+            </div>
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+
+    </div>
+
+    <div class="card">
+      <h1 class="card-title">Curated List of Useful Sites</h1>
+
+    </div>
+
+  </div>
+
+</div>
