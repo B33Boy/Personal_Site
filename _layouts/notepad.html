@@ -5,9 +5,6 @@ layout: default
 
 <div class="row">
   <div class="col-lg-5 offset-md-1">
-    <div class="card">
-      Testing
-    </div>
 
     <div class="card">
       <h1>Reading List</h1>
@@ -16,9 +13,7 @@ layout: default
 
   </div>
 
-
-
-  <div class="col-lg-6">
+  <div class="col-lg-6 offset-md-1">
 
     <div class="card">
       <h1 class="card-title">Notes</h1>
@@ -27,9 +22,7 @@ layout: default
         {% for post in site.notepad %}
         <li class="article-card">
           <a href="{{post.url}}" class="article-card-link">
-            <div id="article-container">
                 <span style="color: #fda50f; font-size: 20px;"> {{post.title}} </span>
-            </div>
           </a>
         </li>
         {% endfor %}
