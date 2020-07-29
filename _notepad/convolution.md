@@ -1,4 +1,0 @@
----
-title: Convolutions
-layout: note
----
