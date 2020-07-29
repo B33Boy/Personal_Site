@@ -1,4 +1,4 @@
 ---
-title: 1x1 Convolution
+title: Accuracy, Precision, and Recall
 layout: note
 ---
