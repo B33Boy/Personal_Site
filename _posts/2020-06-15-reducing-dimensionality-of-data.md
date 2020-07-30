@@ -17,7 +17,7 @@ The concept of dimensionality reduction is necessary to make sense of higher dim
 
 #### Autoencoders
 
-Encoder-decoder networks have a "bottleneck" hidden layers that compress the input representation and recover it by expanding [1]. An autoencoder is a type of encoder-decoder network where the input and output space is the same, as well as the inputs and outputs themselves. This means the purpose of the network is to memorize the general pattern of the data itself so that it can be reconstructed. Autoencoders essentially try to learn "approximations of the identity function" [2].
+Encoder-decoder networks have a "bottleneck" hidden layers that compress the input representation and recover it by expanding (Hinton et al., 2006). An autoencoder is a type of encoder-decoder network where the input and output space is the same, as well as the inputs and outputs themselves. This means the purpose of the network is to memorize the general pattern of the data itself so that it can be reconstructed. Autoencoders essentially try to learn "approximations of the identity function" [2].
 
 The problem with autoencoders comes with difficulty in optimizing weights for deeper networks. Large weight initializations lead to poor minima, and small initializations lead to tiny gradients that do not change much. This is commonly known as the exploding/vanishing gradient problem.
 
@@ -42,7 +42,7 @@ What pretraining does is tweaks the weights and biases to decrease the value of 
 3. Next the states of the hidden units are updated via $\delta w_{ij} = \epsilon(\langle v_{i}h_{j} \rangle_{data} - \langle v_{i}h_{j} \rangle_{recon})$ where $\epsilon$ is a learning rate, $\langle v_{i}h_{j} \rangle_{data}$ is the fraction of times where both v_{i} and h_{j} are 1, and $\langle v_{i}h_{j} \rangle_{recon})$ is the remaining fraction of times confabulations occur.
 
 
-The primary idea of using restricted Boltzmann machines is to take the learned output of the hidden units (which are feature detectors) and feed them into another hidden layer as visible units, and learning another time. This layer-by-layer learning allows "[e]ach layer of features to capture strong, high-order correlations between the activities of units in the layer below" [1].
+The primary idea of using restricted Boltzmann machines is to take the learned output of the hidden units (which are feature detectors) and feed them into another hidden layer as visible units, and learning another time. This layer-by-layer learning allows "[e]ach layer of features to capture strong, high-order correlations between the activities of units in the layer below" (Hinton et al., 2006).
 
 ##### Unfolding and Training
 
@@ -58,5 +58,4 @@ Next, a 784-1000-500-250-30 autoencoder is used to learn the digits in the MNIST
 
 The rest of the results are on page 4 of the paper.
 
-> [1] G. E. Hinton and R. R. Salakhutdinov, “Reducing the Dimensionality of Data with Neural Networks,” Science, vol. 313, no. 5786, p. 504, Jul. 2006, doi: 10.1126/science.1127647.  
-[2] Ufldl.stanford.edu. n.d. Unsupervised Feature Learning And Deep Learning Tutorial. [online] Available at: <http://ufldl.stanford.edu/tutorial/unsupervised/Autoencoders/> [Accessed 27 June 2020].  
+> Hinton, Geoffrey E., and Ruslan R. Salakhutdinov. "Reducing the dimensionality of data with neural networks." science 313.5786 (2006): 504-507.  
