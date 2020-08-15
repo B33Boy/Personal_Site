@@ -54,11 +54,23 @@ author_education_details:
                 visibility: true
 
 author_project_details:
-              - project_thumbnail: gamershub.png
-                project_title: Gamers Hub
-                project_description: A Platform built for Gamers and Game Devs
-                project_url: https://gamershub.in
-                visibility: false
+              - project_thumbnail:
+                project_title: Machine Learning Collection
+                project_description: A collection of scientific computing algorithms written from scratch
+                project_url: https://github.com/B33Boy/Machine-Learning-Collection
+                visibility: true
+
+              - project_thumbnail:
+                project_title: Invisibility Cloak
+                project_description: Colour segmentation based project where the target object becomes transparent.
+                project_url: https://github.com/B33Boy/Invisibility_Cloak
+                visibility: true
+
+              - project_thumbnail:
+                project_title: Self Driving RC Car
+                project_description: An attempt at recreating Hamuchiwa's AutoRCCar project. Implemented the neural network in Keras as well as code for data augmentation.
+                project_url: https://github.com/B33Boy/Self-Driving-RC-Car
+                visibility: true
 
 resume: Abhi_Resume_14_June_2020.pdf
 
