@@ -55,6 +55,12 @@ author_education_details:
 
 author_project_details:
               - project_thumbnail:
+                project_title: Meme Vault
+                project_description: An application that stores and retrieves memes by indexing them based on user provided descriptions and optical character recognition. 
+                project_url: https://github.com/B33Boy/Meme_Vault_Prototype
+                visibility: true
+
+              - project_thumbnail:
                 project_title: Machine Learning Collection
                 project_description: A collection of scientific computing algorithms written from scratch
                 project_url: https://github.com/B33Boy/Machine-Learning-Collection
@@ -67,10 +73,25 @@ author_project_details:
                 visibility: true
 
               - project_thumbnail:
+                project_title: Pothole Pal
+                project_description: Pothole Pal is a proof of concept (POC) demonstrated by an ultrasonic sensor on an Arduino powered car to simulate the ability for a car or autonomous vehicle to drive over a surface and detect potholes in the real world.
+                project_url: https://devpost.com/software/potholepal
+                visibility: true
+
+
+              - project_thumbnail:
+                project_title: Vocally
+                project_description: A tool to improve one's diction by analyzing statistics of filler words.
+                project_url: https://devpost.com/software/vocally
+                visibility: true
+
+              - project_thumbnail:
                 project_title: Self Driving RC Car
                 project_description: An attempt at recreating Hamuchiwa's AutoRCCar project. Implemented the neural network in Keras as well as code for data augmentation.
                 project_url: https://github.com/B33Boy/Self-Driving-RC-Car
                 visibility: true
+
+                
 
 resume: Abhi_Resume_14_June_2020.pdf
 
