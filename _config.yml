@@ -62,8 +62,8 @@ author_project_details:
 
               - project_thumbnail:
                 project_title: Machine Learning Collection
-                project_description: A collection of scientific computing algorithms written from scratch
-                project_url: https://github.com/B33Boy/Machine-Learning-Collection
+                project_description: A collection of algorithms written from scratch. Includes matrix factorizations, linear and logistic regression, k-means clustering, PCA, Eigenface,  
+                project_url: https://github.com/B33Boy/Data-Driven-Algorithms-Collection
                 visibility: true
 
               - project_thumbnail:

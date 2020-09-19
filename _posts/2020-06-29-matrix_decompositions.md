@@ -9,7 +9,7 @@ thumbnail: "/assets/img/posts/svd.jpg"
 ---
 
 
-### [LU Decomposition](https://github.com/B33Boy/Machine-Learning-Collection/blob/master/Matrix%20Factorizations/LU%20Decomposition.ipynb)
+### [LU Decomposition](https://github.com/B33Boy/Data-Driven-Algorithms-Collection/blob/master/Matrix%20Factorizations/LU%20Decomposition.ipynb)
 
 When working with linear systems $Ax=b$ where A is a large matrix, it is often computationally expensive to find $A^{-1}$ to solve for $x$ (i.e. $x=A^{-1}b$). LU decomposition simplifies gaussian elimination.
 
@@ -43,7 +43,7 @@ Solve for $x$ <br>
 
 </center>
 
-### [QR Decomposition](https://github.com/B33Boy/Machine-Learning-Collection/blob/master/Matrix%20Factorizations/QR%20Decomposition.ipynb)
+### [QR Decomposition](https://github.com/B33Boy/Data-Driven-Algorithms-Collection/blob/master/Matrix%20Factorizations/QR%20Decomposition.ipynb)
 
 ##### QR Decomposition
 If a $m \times n$ matrix $A$ contains linearly independent column vectors, then we can express $A$ as $A = QR$ where $Q$ is an $m \times n$ matrix with orthonormal column vectors and $R$ is a $n \times n$ upper triangular matrix.
@@ -92,12 +92,12 @@ $v{3} = u{3} - proj_{v1}u{3} - proj_{v2}u{3} = u_{3} - \frac{\langle u_{3},v_{1}
 Continue the pattern until $e_{n}$ basis vectors are found
 
 
-### [Eigendecomposition](https://github.com/B33Boy/Machine-Learning-Collection/blob/master/Matrix%20Factorizations/Eigendecomposition.ipynb)
+### [Eigendecomposition](https://github.com/B33Boy/Data-Driven-Algorithms-Collection/blob/master/Matrix%20Factorizations/Eigendecomposition.ipynb)
 Eigendecomposition of $A = V \lambda V^{-1}$ where $\lambda$ is a diagonal matrix of eigenvalues, and $V$ is an eigenvector matrix.
 
 If V is orthogonal, then we can represent $V$ as $Q$ and the eigendecomposition $A = Q \Lambda Q^{T}$.
 
-### [Singular Value Decomposition](https://github.com/B33Boy/Machine-Learning-Collection/blob/master/Matrix%20Factorizations/Singular%20Value%20Decomposition.ipynb)
+### [Singular Value Decomposition](https://github.com/B33Boy/Data-Driven-Algorithms-Collection/blob/master/Matrix%20Factorizations/Singular%20Value%20Decomposition.ipynb)
 Singular Value Decomposition (SVD) is $A = U \Sigma V^{\*} $ where U and V* are unitary (i.e. conjugate transpose equals its inverse), and $\Sigma$ is a diagonal matrix of singular values (i.e. eigenvalues square rooted($\Sigma = \sqrt{λ}$))
 
 There are three forms: Full, Reduced, and Truncated
@@ -106,4 +106,4 @@ There are three forms: Full, Reduced, and Truncated
 
 
 
-My implementations can be found [here](https://github.com/B33Boy/Machine-Learning-Collection/tree/master/Matrix%20Factorizations).
+My implementations can be found [here](https://github.com/B33Boy/Data-Driven-Algorithms-Collection/tree/master/Matrix%20Factorizations).
