@@ -22,8 +22,8 @@ collections:
 
 author_logo: profile.png
 author: Abhi Patel
-author_bio: Mechatronics Engineering Student
-author_email: "abhi.patel@ontariotechu.net"
+author_bio: I am a 4th year mechatronics engineering student seeking a job starting April 2022.
+author_email: "abhip202@gmail.com"
 author_location: Canada
 author_website_url: "abhipatel.netlify.app"
 typewrite-text: Welcome to my site
@@ -55,6 +55,24 @@ author_education_details:
 
 author_project_details:
               - project_thumbnail:
+                project_title: Handheld Laser Scanner
+                project_description: Worked in a team to design, develop and manufacture a low cost, variable range, handheld laser scanner
+                project_url: https://github.com/B33Boy/3D-Scanner
+                visibility: true
+
+              - project_thumbnail:
+                project_title: E-chute
+                project_description: Developed an embedded real-time parachute release system. 
+                project_url: https://github.com/B33Boy/E-Chute
+                visibility: true
+
+              - project_thumbnail:
+                project_title: Maze Navigating Robot
+                project_description: Built a robot that can autonomously navigate a two-level maze in order to retrieve a figurine
+                project_url: https://github.com/B33Boy/Maze-Robot-Mechatronics-Design
+                visibility: true
+
+              - project_thumbnail:
                 project_title: Meme Vault
                 project_description: An application that stores and retrieves memes by indexing them based on user provided descriptions and optical character recognition. 
                 project_url: https://github.com/B33Boy/Meme_Vault_Prototype
@@ -78,13 +96,6 @@ author_project_details:
                 project_url: https://devpost.com/software/potholepal
                 visibility: true
 
-
-              - project_thumbnail:
-                project_title: Vocally
-                project_description: A tool to improve one's diction by analyzing statistics of filler words.
-                project_url: https://devpost.com/software/vocally
-                visibility: true
-
               - project_thumbnail:
                 project_title: Self Driving RC Car
                 project_description: An attempt at recreating Hamuchiwa's AutoRCCar project. Implemented the neural network in Keras as well as code for data augmentation.
@@ -93,7 +104,7 @@ author_project_details:
 
                 
 
-resume: Abhi_Patel_Resume_2020_10_01.pdf
+resume: Abhi_Patel_Resume_27_Nov_2021.pdf
 
 # social links
 github_username:  b33boy
